@@ -180,7 +180,7 @@ Luhn's algorithm works as follows.
 
 Here's an example using an American Express card: `378282246310005`.
 
-First, you should identify the digits to be multiplied: every other digit, starting with the second-to-last digit. For clarity, these are in bold.
+First, you should identify the digits to be multiplied: every other digit, starting with the second-to-last digit.
 ```
 3 7 8 2 8 2 2 4 6 3 1 0 0 0 5
 ```
