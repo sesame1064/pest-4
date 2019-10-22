@@ -178,12 +178,12 @@ Luhn's algorithm works as follows.
 * Mastercard uses 16-digit numbers, starting with 51, 52, 53, 54, or 55.
 * Visa uses 13- or 16-digit numbers, starting with 4.
 
-Here's an example using an American Express card: 378282246310005.
+Here's an example using an American Express card: `378282246310005`.
 
 First, you should identify the digits to be multiplied: every other digit, starting with the second-to-last digit. For clarity, these are in bold.
-```
-3**7**8**2**8**2**2**4**6**3**1**0**0**0**5
-```
+<div>
+     <code>3 7 8 2 8 2 2 4 6 3 1 0 0 0 5</code>
+</div>
 Now, multiply these digits by two.
 ```
 7 x 2 + 2 x 2 + 2 x 2 + 4 x 2 + 3 x 2 + 0 x 2 + 0 x 2
