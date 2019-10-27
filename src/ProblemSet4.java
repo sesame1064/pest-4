@@ -52,7 +52,26 @@ public class ProblemSet4 {
      */
     
     public void sum() {
+        int lowBound;
+        int upBound;
+        int sum = 0;
+        
+        do{
+            System.out.print("Lower Bound: ");
+            lowBound = nextInt();
 
+            System.out.print("Upper Bound: ");
+            upBound = nextInt();
+
+        }while(upBound < lowBound);
+        
+        for(int x = upBound; x >= lowBound; x--){
+            if(x % 2 == 0){
+                sum += x;
+            }
+        }
+
+        System.out.printf("\n%,d", sum);
     }
     
     /*
@@ -63,7 +82,18 @@ public class ProblemSet4 {
      */
     
     public void reverse() {
+        int num;
 
+        do{
+            System.out.print("Positive integer:");
+            num = in.nextInt();
+        }while(num < 0);
+
+        String number = num.toString();
+
+        for(int x = 0; x < length; x--){
+            System.out.print(x);
+        }
     }
     
     /*
