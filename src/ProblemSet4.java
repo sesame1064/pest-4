@@ -27,16 +27,16 @@ public class ProblemSet4 {
         
         // comment out or uncomment as needed
         
-        ps.sum();
-        ps.reverse();
+        //ps.sum();
+        //ps.reverse();
         ps.digits();
-        ps.average();
-        ps.prime();
-        ps.fibonacci();
-        ps.factors();
-        ps.mario();
-        ps.luigi();
-        ps.credit();
+        // ps.average();
+        // ps.prime();
+        // ps.fibonacci();
+        // ps.factors();
+        // ps.mario();
+        // ps.luigi();
+        // ps.credit();
                 
         in.close();
     }
@@ -55,13 +55,13 @@ public class ProblemSet4 {
         int lowBound;
         int upBound;
         int sum = 0;
-        
+        System.out.print("\n");
         do{
             System.out.print("Lower Bound: ");
-            lowBound = nextInt();
+            lowBound = in.nextInt();
 
             System.out.print("Upper Bound: ");
-            upBound = nextInt();
+            upBound = in.nextInt();
 
         }while(upBound < lowBound);
         
@@ -71,7 +71,7 @@ public class ProblemSet4 {
             }
         }
 
-        System.out.printf("\n%,d", sum);
+        System.out.printf("\n%,d\n", sum);
     }
     
     /*
@@ -82,17 +82,25 @@ public class ProblemSet4 {
      */
     
     public void reverse() {
-        int num;
+        int num = 0;
 
         do{
-            System.out.print("Positive integer:");
+            System.out.print("\nPositive integer: ");
             num = in.nextInt();
-        }while(num < 0);
+        }while(num <= 0);
 
-        String number = num.toString();
+        String number = String.valueOf(num);
+        char ind;
+        System.out.print("\n");
 
-        for(int x = 0; x < length; x--){
-            System.out.print(x);
+        for(int x = (number.length()- 1); x >= 0 ; x--){
+            ind = number.charAt(x);
+            System.out.print(ind);
+            if(x > 0){
+                System.out.print(", ");
+            }else{
+                System.out.print(".\n");
+            }
         }
     }
     
@@ -104,7 +112,26 @@ public class ProblemSet4 {
      */
     
     public void digits() {
+        int input;
+        int sum = 0;
+        do{
+            System.out.print("Positive integer: ");
+            input = in.nextInt();            
+        }while(input <= 0);
 
+        String intToStr = String.valueOf(input);
+        char indexNum;
+        int oddNum;
+        
+        for(int x = 0; x <= (intToStr.length()-1); x++){   
+            indexNum = intToStr.charAt(x);
+            //System.out.print(indexNum);
+            oddNum = Character.getNumericValue(indexNum);      
+            if(oddNum % 2 == 1){
+                sum += oddNum;
+            }
+        }
+        System.out.print("\n" + sum + ".");
     }
     
     /*
