@@ -259,7 +259,7 @@ public class ProblemSet4 {
                 System.out.print(" ");
                 space++;
             }
-            for(int z = (height + 1)-space; z > 0; z--){
+            for(int z = (height + 1) - space; z > 0; z--){
                 System.out.print("#");
             }
 
@@ -277,6 +277,37 @@ public class ProblemSet4 {
      */
     
     public void luigi() {
+        int height;
+        int space = 0;
+        int hash = 0;
+        
+        do{
+            System.out.print("Height: ");
+            height = in.nextInt();
+        }while(height < 1 || height > 24);
+
+        for(int x = 1; x <= height; x++){
+            
+            for(int y = height - x; y > 0; y--){
+                System.out.print(" ");
+                space++;
+            }
+
+            for(int z = (height + 1) - space; z > 0; z--){
+                System.out.print("#");
+                hash++;
+            }
+
+            System.out.print(" ");
+
+            for(int a = 0; a < hash; a++){
+                System.out.print("#");
+            }
+
+            System.out.print("\n");
+            space = 0;
+            hash = 0;
+        }
 
     }
     
