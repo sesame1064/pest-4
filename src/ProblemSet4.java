@@ -34,8 +34,8 @@ public class ProblemSet4 {
         //ps.prime();
         // ps.fibonacci();
         // ps.factors();
-         ps.mario();
-        // ps.luigi();
+        // ps.mario();
+         ps.luigi();
         // ps.credit();
                 
         in.close();
@@ -286,6 +286,8 @@ public class ProblemSet4 {
             height = in.nextInt();
         }while(height < 1 || height > 24);
 
+        System.out.print("\n");
+
         for(int x = 1; x <= height; x++){
             
             for(int y = height - x; y > 0; y--){
@@ -319,6 +321,41 @@ public class ProblemSet4 {
      */
     
     public void credit() {
+        int cardNum;
+        String cardStr; // card length
+        int first;
+        String firstStr; //for number length 
+        int sec;
+        int total;
+        String totalStr;
         
+    
+        do{
+            System.out.print("Number: ");
+            cardNum = in.nextInt();
+            cardStr = Interger.toString(cardNum);
+        }while(cardNum <= 0);
+
+        for(int x = cardStr.length() - 2; x >= 0; x = x - 2){
+            first = Integer.parseInt(cardStr.subString(x, x + 1)) * 2;
+            firstStr = Integer.toString(first);
+
+            for(int y = 0; y < firstStr.length();  y++){
+                sec += Integer.parseInt(firstStr.subString(y, y + 1));
+            }
+        }
+
+        for(int a = cardStr.length() -1; a >= 0; a -= 2){
+            total += Integer.parseInt(cardStr.subString(i, i + 1));
+        }
+
+        total += sec;
+        totalStr = String.valueOf(total);
+
+        if(total % 10 == 0){
+            
+        }
+
+    
     }
 }
