@@ -29,12 +29,12 @@ public class ProblemSet4 {
         
         //ps.sum();
         //ps.reverse();
-        ps.digits();
-        // ps.average();
-        // ps.prime();
+        //ps.digits();
+        //ps.average();
+        //ps.prime();
         // ps.fibonacci();
         // ps.factors();
-        // ps.mario();
+         ps.mario();
         // ps.luigi();
         // ps.credit();
                 
@@ -120,12 +120,11 @@ public class ProblemSet4 {
         }while(input <= 0);
 
         String intToStr = String.valueOf(input);
-        char indexNum;
+        char indexNum; //number of the index
         int oddNum;
         
         for(int x = 0; x <= (intToStr.length()-1); x++){   
             indexNum = intToStr.charAt(x);
-            //System.out.print(indexNum);
             oddNum = Character.getNumericValue(indexNum);      
             if(oddNum % 2 == 1){
                 sum += oddNum;
@@ -143,7 +142,20 @@ public class ProblemSet4 {
      */
     
     public void average() {
+        int input;
+        int counter = 0;
+        double sum = 0;
+        do{
+            System.out.print("Non-negative integer: ");
+            input = in.nextInt();
+            if(input > 0){
+                counter++;           
+                sum += input;
+            }    
+        }while(input > 0);
 
+        double avg = sum/counter; 
+        System.out.printf("\n%,.2f\n", avg);
     }
     
     /*
@@ -153,7 +165,24 @@ public class ProblemSet4 {
      */
     
     public void prime() {
+            int num;
+            do{
+                System.out.print("Non-negative integer: ");
+                num = in.nextInt();
+            }while(num < 0);
 
+            boolean test = false;
+            for(int i = 2; i <= num/2; i++){
+                if(num % i == 0){
+                    test = true;
+                    break;
+                }
+            }
+            if(!test){
+                System.out.print("\nPrime.\n");
+            }else{
+                System.out.print("\nNot Prime.\n");
+            } 
     }
     
     /*
@@ -164,7 +193,22 @@ public class ProblemSet4 {
      */
     
     public void fibonacci() {
+        int num;
+        int preNum = 0;
+        int currentNum = 1;
+        int nextNum = 1;
 
+            do{
+                System.out.print("Postive integer: ");
+                num = in.nextInt();
+            }while(num < 1 || num > 92);
+
+            for(int x = 1; x < num; x++){
+                nextNum = currentNum + preNum;
+                preNum = currentNum;
+                currentNum = nextNum;
+            }
+            System.out.printf("\n%d.\n", nextNum);
     }
     
     /*
@@ -174,7 +218,21 @@ public class ProblemSet4 {
      */
     
     public void factors() {
+        int input;
 
+        do{
+            System.out.print("Positive integer: ");
+            input = in.nextInt();
+        }while(input < 1);
+
+        System.out.printf("\n1, %d",input);
+
+        for(int i = 2; i <= input/i; i++){
+            if(input % i == 0){
+                System.out.printf(", %d, %d",i, input/i);
+            }
+        }
+        System.out.print(".\n");
     }
     
     /*
@@ -185,6 +243,29 @@ public class ProblemSet4 {
      */
     
     public void mario() {        
+        int height; 
+        int space = 0;
+
+        do{
+            System.out.print("\nHeight: " );
+            height = in.nextInt();
+        }while(height < 1 || height > 24);
+
+        System.out.print("\n");
+
+        for(int x = 1; x <= height; x++){
+
+            for(int y = height - x; y > 0; y--){
+                System.out.print(" ");
+                space++;
+            }
+            for(int z = (height + 1)-space; z > 0; z--){
+                System.out.print("#");
+            }
+
+            System.out.print("\n");
+            space = 0;
+        }
 
     }
     
