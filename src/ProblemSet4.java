@@ -27,16 +27,16 @@ public class ProblemSet4 {
         
         // comment out or uncomment as needed
         
-        //ps.sum();
-        //ps.reverse();
-        //ps.digits();
-        //ps.average();
-        //ps.prime();
-        // ps.fibonacci();
-        // ps.factors();
-        // ps.mario();
-         ps.luigi();
-        // ps.credit();
+        ps.sum();
+        ps.reverse();
+        ps.digits();
+        ps.average();
+        ps.prime();
+        ps.fibonacci();
+        ps.factors();
+        ps.mario();
+        ps.luigi();
+        ps.credit();
                 
         in.close();
     }
@@ -71,7 +71,7 @@ public class ProblemSet4 {
             }
         }
 
-        System.out.printf("\n%,d\n", sum);
+        System.out.printf("\n%,d.\n\n", sum);
     }
     
     /*
@@ -85,7 +85,7 @@ public class ProblemSet4 {
         int num = 0;
 
         do{
-            System.out.print("\nPositive integer: ");
+            System.out.print("Positive integer: ");
             num = in.nextInt();
         }while(num <= 0);
 
@@ -99,7 +99,7 @@ public class ProblemSet4 {
             if(x > 0){
                 System.out.print(", ");
             }else{
-                System.out.print(".\n");
+                System.out.print(".\n\n");
             }
         }
     }
@@ -130,7 +130,7 @@ public class ProblemSet4 {
                 sum += oddNum;
             }
         }
-        System.out.print("\n" + sum + ".");
+        System.out.print("\n" + sum + ".\n\n");
     }
     
     /*
@@ -155,7 +155,7 @@ public class ProblemSet4 {
         }while(input > 0);
 
         double avg = sum/counter; 
-        System.out.printf("\n%,.2f\n", avg);
+        System.out.printf("\n%,.2f.\n\n", avg);
     }
     
     /*
@@ -179,9 +179,9 @@ public class ProblemSet4 {
                 }
             }
             if(!test){
-                System.out.print("\nPrime.\n");
+                System.out.print("\nPrime.\n\n");
             }else{
-                System.out.print("\nNot Prime.\n");
+                System.out.print("\nNot Prime.\n\n");
             } 
     }
     
@@ -208,7 +208,7 @@ public class ProblemSet4 {
                 preNum = currentNum;
                 currentNum = nextNum;
             }
-            System.out.printf("\n%d.\n", nextNum);
+            System.out.printf("\n%d.\n\n", nextNum);
     }
     
     /*
@@ -232,7 +232,7 @@ public class ProblemSet4 {
                 System.out.printf(", %d, %d",i, input/i);
             }
         }
-        System.out.print(".\n");
+        System.out.print(".\n\n");
     }
     
     /*
@@ -247,7 +247,7 @@ public class ProblemSet4 {
         int space = 0;
 
         do{
-            System.out.print("\nHeight: " );
+            System.out.print("Height: " );
             height = in.nextInt();
         }while(height < 1 || height > 24);
 
@@ -281,6 +281,8 @@ public class ProblemSet4 {
         int space = 0;
         int hash = 0;
         
+        System.out.print("\n");
+
         do{
             System.out.print("Height: ");
             height = in.nextInt();
@@ -321,41 +323,56 @@ public class ProblemSet4 {
      */
     
     public void credit() {
-        int cardNum;
-        String cardStr; // card length
-        int first;
-        String firstStr; //for number length 
-        int sec;
-        int total;
-        String totalStr;
-        
-    
+        long input;
+        String inputStr;
+        long firstCalc = 0; 
+        long secCalc = 0;
+        long total = 0;
+
+        System.out.print("\n");
+
         do{
             System.out.print("Number: ");
-            cardNum = in.nextInt();
-            cardStr = Interger.toString(cardNum);
-        }while(cardNum <= 0);
+            input = in.nextLong();
+            inputStr = Long.toString(input);
+        }while(inputStr.length() <= 0);
 
-        for(int x = cardStr.length() - 2; x >= 0; x = x - 2){
-            first = Integer.parseInt(cardStr.subString(x, x + 1)) * 2;
-            firstStr = Integer.toString(first);
+        for(int x = inputStr.length() - 2; x >= 0; x-=2){
+            firstCalc = Integer.parseInt(inputStr.substring(x, (x + 1))) * 2;
 
-            for(int y = 0; y < firstStr.length();  y++){
-                sec += Integer.parseInt(firstStr.subString(y, y + 1));
+            for(int y = 0; y < String.valueOf(firstCalc).length(); y++){
+                secCalc += Integer.parseInt(String.valueOf(firstCalc).substring(y, y + 1));
+            
             }
         }
-
-        for(int a = cardStr.length() -1; a >= 0; a -= 2){
-            total += Integer.parseInt(cardStr.subString(i, i + 1));
+        for(int x = inputStr.length() - 1; x >= 0; x -= 2){
+            total += Integer.parseInt(inputStr.substring(x, x + 1));
         }
-
-        total += sec;
-        totalStr = String.valueOf(total);
+        
+        total += secCalc;
+        String intStr = inputStr.substring(0,2);
 
         if(total % 10 == 0){
-            
+            if(inputStr.length() == 15 && ((intStr.equals("34") || intStr.equals("37")))){
+                System.out.println("\nAmex.\n");
+
+            }else if((inputStr.length() == 16) && 
+            (intStr.equals("51")
+            || intStr.equals("52") 
+            || intStr.equals("53") 
+            || intStr.equals("54")
+            || intStr.equals("55"))){
+                System.out.print("\nMastercard.\n");
+            }else if((inputStr.length() == 16 || inputStr.length() == 13) && 
+            (inputStr.substring(0,1).equals("4"))){
+                System.out.print("\nVisa.\n");
+            } else {
+                System.out.print("\nInvalid.\n");
+            }
+
+        }else{
+            System.out.print("\nInvalid\n");
         }
 
-    
     }
 }
